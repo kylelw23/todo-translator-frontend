@@ -1,0 +1,59 @@
+<app-navigation-bar></app-navigation-bar>
+<div class="login-div">
+  <mat-card class="login-card">
+    <mat-card-header>
+      <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="login-form">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+          <input
+            matInput
+            type="email"
+            formControlName="email"
+            placeholder="Email"
+          />
+          <mat-error
+            *ngIf="
+              loginForm.get('email')?.invalid && loginForm.get('email')?.touched
+            "
+            >Please enter a valid email</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            type="password"
+            formControlName="password"
+            placeholder="Password"
+          />
+          <mat-error
+            *ngIf="
+              loginForm.get('password')?.invalid &&
+              loginForm.get('password')?.touched
+            "
+            >Please enter a valid password</mat-error
+          >
+        </mat-form-field>
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="!loginForm.valid || loading"
+        >
+          Login
+        </button>
+        <button
+          mat-raised-button
+          (click)="goToSignup()"
+          class="signup-button"
+          [disabled]="loading"
+        >
+          Signup
+        </button>
+      </form>
+    </mat-card-content>
+    <app-loading [hidden]="!loading"></app-loading>
+    <ng-container *ngIf="snackBar"></ng-container>
+  </mat-card>
+</div>

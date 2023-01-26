@@ -1,0 +1,19 @@
+.user-list {
+  margin: 20px 20px 20px 20px;
+  mat-card-title {
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+  mat-list-item {
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold !important;
+    background-color: rgb(55, 197, 229);
+    align-items: center;
+    justify-content: center;
+  }
+
+  mat-list-item:hover {
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,31 @@
+<app-navigation-bar></app-navigation-bar>
+<mat-card>
+  <ul>
+    <li *ngFor="let item of items$">
+      {{ item.task }}
+      <button (click)="deleteItem(item)">Delete</button>
+    </li>
+  </ul>
+</mat-card>
+<div class="addSection">
+  <input
+    matNativeControl
+    [(ngModel)]="newItem.task"
+    placeholder="Add a new item"
+  />
+
+  <button (click)="addItem()">Add</button>
+</div>
+
+<div class="addSection">
+  <button (click)="showTranslations()">Translate to English</button>
+</div>
+
+<mat-card>
+  <ul *ngIf="showTranslation">
+    <li *ngFor="let item of items$">
+      {{ item.translation }}
+      <button (click)="deleteItem(item)">Delete</button>
+    </li>
+  </ul>
+</mat-card>
