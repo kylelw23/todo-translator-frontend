@@ -1,0 +1,58 @@
+<app-navigation-bar></app-navigation-bar>
+<div class="signin-div">
+  <mat-card class="signin-card">
+    <mat-card-title>Sign In</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+          <input
+            matInput
+            type="username"
+            formControlName="username"
+            placeholder="Username"
+          />
+          <mat-error *ngIf="signinForm?.get('username')?.hasError('required')">
+            Username is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            type="email"
+            formControlName="email"
+            placeholder="Email"
+          />
+          <mat-error *ngIf="signinForm?.get('email')?.hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+          <mat-error *ngIf="signinForm?.get('email')?.hasError('email')">
+            Please enter a valid <strong>email</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            type="password"
+            formControlName="password"
+            placeholder="Password"
+          />
+          <mat-error *ngIf="signinForm?.get('password')?.hasError('required')">
+            Password is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="signinForm.invalid"
+        >
+          Sign In
+        </button>
+        <button mat-raised-button (click)="backToLogin()" class="back-button">
+          Back
+        </button>
+      </form>
+    </mat-card-content>
+    <ng-container *ngIf="snackBar"></ng-container>
+  </mat-card>
+</div>

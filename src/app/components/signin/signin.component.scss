@@ -1,0 +1,32 @@
+.signin-div {
+  margin-top: 100px;
+}
+
+.signin-card {
+  width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .mat-card_header {
+    font: 400;
+    margin-bottom: 20px;
+  }
+
+  .mat-form-field {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .signin-button {
+    width: 100%;
+    margin-top: 10px;
+  }
+}

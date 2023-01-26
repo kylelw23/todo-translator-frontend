@@ -1,0 +1,7 @@
+<app-navigation-bar></app-navigation-bar>
+<div *ngIf="userUsage">
+  <h2>Usage Details</h2>
+  <p>User ID: {{ userUsage.userId }}</p>
+  <p>Total Logins: {{ userUsage.loginTime }}</p>
+  <p>Last Login: {{ userUsage.logoutTime }}</p>
+</div>

@@ -1,0 +1,16 @@
+<app-navigation-bar></app-navigation-bar>
+<div class="user-list">
+  <mat-card>
+    <mat-card-title>Current Users</mat-card-title>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item
+          *ngFor="let user of userList$ | async"
+          (click)="showUserDetails(user.id)"
+        >
+          <h4 mat-line>{{ user.username }}</h4>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+</div>
