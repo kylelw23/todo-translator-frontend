@@ -13,6 +13,9 @@ COPY . .
 # run npm install
 RUN npm install
 
+# Install serve package globally
+RUN npm install -g serve
+
 # Build the Angular app
 RUN npm run build --prod
 

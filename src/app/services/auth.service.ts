@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { User } from '../models/user/user';
-import { environment } from '../environments/environment';
+import { environment } from 'src/app/environments/environment';
 import { UserUsage } from '../models/UserUsage/user-usage';
 
 @Injectable({
