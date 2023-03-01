@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideMockStore, MockStore } from '@ngrx/store/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { MatCardModule } from '@angular/material/card';
-import { MatListModule } from '@angular/material/list';
-
-import { NavigationComponent } from '../navigation/navigation.component';
-import { AdminComponent } from './admin.component';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { RouterTestingModule } from '@angular/router/testing';
 
-describe('AdminComponent', () => {
-  let adminComponent: AdminComponent;
-  let adminFixture: ComponentFixture<AdminComponent>;
+import { TodoListComponent } from './todo-list.component';
+import { NavigationComponent } from '../navigation/navigation.component';
+import { MatCardModule } from '@angular/material/card';
+import { FormsModule } from '@angular/forms';
+
+describe('TodoListComponent', () => {
+  let todoListComponent: TodoListComponent;
+  let todoListFixture: ComponentFixture<TodoListComponent>;
 
   let navigationComponent: NavigationComponent;
   let navigationFixture: ComponentFixture<NavigationComponent>;
@@ -23,30 +23,30 @@ describe('AdminComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        MatCardModule,
-        MatListModule,
         MatToolbarModule,
         MatButtonModule,
+        MatCardModule,
+        FormsModule,
       ],
-      declarations: [AdminComponent, NavigationComponent],
+      declarations: [TodoListComponent, NavigationComponent],
       providers: [provideMockStore({ initialState })],
     }).compileComponents();
     store = TestBed.inject(MockStore);
   });
 
   beforeEach(() => {
-    adminFixture = TestBed.createComponent(AdminComponent);
-    adminComponent = adminFixture.componentInstance;
+    todoListFixture = TestBed.createComponent(TodoListComponent);
+    todoListComponent = todoListFixture.componentInstance;
 
     navigationFixture = TestBed.createComponent(NavigationComponent);
     navigationComponent = navigationFixture.componentInstance;
 
-    adminFixture.detectChanges();
+    todoListFixture.detectChanges();
     navigationFixture.detectChanges();
   });
 
-  it('should create AdminComponent', () => {
-    expect(adminComponent).toBeTruthy();
+  it('should create TodoListComponent', () => {
+    expect(todoListComponent).toBeTruthy();
   });
 
   it('should create NavigationComponent', () => {
