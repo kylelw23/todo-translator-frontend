@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.state';
 import { logOut } from 'src/app/store/auth/auth.actions';
-import { logOut as adminLougout } from 'src/app/store/admin/admin.actions';
 import { User } from 'src/app/models/user/user';
 
 @Component({

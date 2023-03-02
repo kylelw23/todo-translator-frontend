@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { User } from 'src/app/models/user/user';
 import { AppState } from '../../store/app.state';
-import { logIn } from 'src/app/store/auth/auth.actions';
+import { checkUserLogin, logIn } from 'src/app/store/auth/auth.actions';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -26,12 +26,27 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router,
     private store: Store<AppState>,
-    private matSnackBar: MatSnackBar
+    private matSnackBar: MatSnackBar,
+    private authService: AuthService
   ) {
     this.snackBar = matSnackBar;
+    if (this.authService.isLoggedIn()) {
+      this.store.dispatch(checkUserLogin());
+    }
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.store
+      .select((state) => state.authState.user)
+      .subscribe((user) => {
+        if (user?.type == 'admin') {
+          this.router.navigate(['admin']);
+        }
+        if (user?.type == 'user') {
+          this.router.navigate(['todo']);
+        }
+      });
+  }
 
   onSubmit() {
     const payload = {
