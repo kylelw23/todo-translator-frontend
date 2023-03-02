@@ -1,6 +1,6 @@
 import { state } from '@angular/animations';
 import { createReducer, on } from '@ngrx/store';
-import { User, Credentials } from 'src/app/models/user/user';
+import { User } from 'src/app/models/user/user';
 import { UserUsage } from 'src/app/models/UserUsage/user-usage';
 import {
   AdminActionTypes,

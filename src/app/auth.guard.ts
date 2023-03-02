@@ -6,10 +6,8 @@ import {
   RouterStateSnapshot,
   UrlTree,
 } from '@angular/router';
-import { Store } from '@ngrx/store';
 import { map, Observable } from 'rxjs';
 import { AuthService } from './services/auth.service';
-import { AppState } from './store/app.state';
 
 @Injectable({
   providedIn: 'root',

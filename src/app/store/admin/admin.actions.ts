@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { User, SigninData, Credentials } from 'src/app/models/user/user';
+import { User, Credentials } from 'src/app/models/user/user';
 import { UserUsage } from 'src/app/models/UserUsage/user-usage';
 
 export enum AdminActionTypes {
