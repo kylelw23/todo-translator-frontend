@@ -82,7 +82,13 @@ export class AuthEffects {
       this.actions$.pipe(
         ofType(loginUserSuccess),
         tap(() => {
-          this.store.dispatch(loadTodos());
+          this.store
+            .select((state) => state.authState.user)
+            .subscribe((user) => {
+              if (user?.type == 'user') {
+                this.store.dispatch(loadTodos());
+              }
+            });
         })
       ),
     { dispatch: false }
@@ -163,8 +169,6 @@ export class AuthEffects {
       this.actions$.pipe(
         ofType(logOut),
         tap(() => {
-          localStorage.removeItem('token'); // Remove token from local storage
-          // Track log out date
           this.authService.logOut();
           this.router.navigate(['/login']); // Navigate to login page
         })
