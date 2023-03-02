@@ -44,6 +44,15 @@ export class AuthService {
   }
 
   logOut() {
+    const token = localStorage.getItem('token');
+    const headers = { Authorization: `Bearer ${token}` };
+    // Track logout click
+    this.http.get(`${this.baseUrl}/logout`, { headers }).pipe(
+      map((res: any) => {
+        return res.user;
+      })
+    );
+    // Remove token from local storage
     localStorage.removeItem(`token`);
   }
 
