@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { User, Credentials } from 'src/app/models/user/user';
+import { User } from 'src/app/models/user/user';
 import {
   checkUserLogin,
   logIn,
