@@ -2,6 +2,8 @@
 <div *ngIf="userUsage">
   <h2>Usage Details</h2>
   <p>User ID: {{ userUsage.userId }}</p>
-  <p>Total Logins: {{ userUsage.loginTime }}</p>
-  <p>Last Login: {{ userUsage.logoutTime }}</p>
+  <p>Number of todo items: {{ userUsage.todoItemCount }}</p>
+  <p>Translate Button Clicks: {{ userUsage.translateButtonClick }}</p>
+  <p>Last Logins: {{ userUsage.loginTime }}</p>
+  <p>Last Logout: {{ userUsage.logoutTime }}</p>
 </div>

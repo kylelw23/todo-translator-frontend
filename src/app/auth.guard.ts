@@ -26,7 +26,6 @@ export class AuthGuard implements CanActivate {
     | UrlTree {
     return this.authService.checkLogin().pipe(
       map((user) => {
-        console.log(user.type);
         if (user.type == 'user') {
           return true;
         } else {
@@ -47,7 +46,6 @@ export class AdminGuard implements CanActivate {
   canActivate(): Observable<boolean> {
     return this.authService.checkLogin().pipe(
       map((user) => {
-        console.log(user.type);
         if (user.type == 'admin') {
           return true;
         } else {

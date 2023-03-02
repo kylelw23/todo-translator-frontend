@@ -44,7 +44,6 @@ export class AuthEffects {
       switchMap(({ credentials }) => {
         return this.authService.logIn(credentials).pipe(
           map((user) => {
-            console.log(user.type);
             if (user.type == 'admin') {
               this.router.navigate(['/admin']);
               return loginAdminSuccess({ user });
@@ -165,6 +164,8 @@ export class AuthEffects {
         ofType(logOut),
         tap(() => {
           localStorage.removeItem('token'); // Remove token from local storage
+          // Track log out date
+          this.authService.logOut();
           this.router.navigate(['/login']); // Navigate to login page
         })
       ),

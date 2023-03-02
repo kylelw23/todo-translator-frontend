@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.state';
 import { logOut } from 'src/app/store/auth/auth.actions';
 import { logOut as adminLougout } from 'src/app/store/admin/admin.actions';
+import { User } from 'src/app/models/user/user';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -32,6 +33,7 @@ import { logOut as adminLougout } from 'src/app/store/admin/admin.actions';
 export class NavigationComponent {
   isLoggedIn: boolean = false;
   isAdminLoggedIn: boolean = false;
+  user$: User | null = new User();
 
   constructor(private store: Store<AppState>, private router: Router) {
     this.store

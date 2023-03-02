@@ -28,7 +28,6 @@ export class AdminComponent implements OnInit {
   }
 
   showUserDetails(userId: string | undefined) {
-    console.log('userId:', userId);
     this.store.dispatch(getUserUsage({ userId }));
     this.router.navigate(['/userusage', userId]);
   }

@@ -34,7 +34,6 @@ export class AdminEffects {
       switchMap(() => {
         return this.authService.checkLogin().pipe(
           map((user) => {
-            console.log(user.type);
             return loginAdminSuccess({ user });
           }),
           catchError((error) => of(loginFailure({ error })))
