@@ -114,7 +114,7 @@ export class AuthEffects {
         switchMap(({ signupData }) => {
           return this.authService.signUp(signupData).pipe(
             map((user) => {
-              return signupSuccess({ user });
+              return signupSuccess();
             }),
             catchError((error: HttpErrorResponse) => {
               this.store.dispatch(signupFailure({ error: error.error }));

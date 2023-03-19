@@ -28,7 +28,6 @@ export class AuthService {
   signUp(data: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/signup`, data).pipe(
       map((res: any) => {
-        localStorage.setItem('token', res.token);
         return res;
       })
     );

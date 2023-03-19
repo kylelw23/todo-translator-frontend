@@ -38,10 +38,7 @@ export const signUp = createAction(
   props<{ signupData: SignupData }>()
 );
 
-export const signupSuccess = createAction(
-  AuthActionTypes.SIGNUP_SUCCESS,
-  props<{ user: User }>()
-);
+export const signupSuccess = createAction(AuthActionTypes.SIGNUP_SUCCESS);
 
 export const signupFailure = createAction(
   AuthActionTypes.SIGNUP_FAILURE,

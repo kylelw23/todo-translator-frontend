@@ -64,11 +64,11 @@ export const authReducer = createReducer(
     ...state,
     isLoading: true,
   })),
-  on(signupSuccess, (state, { user }) => ({
+  on(signupSuccess, (state) => ({
     ...state,
-    user,
     isLoading: false,
     error: null,
+    isLoggedIn: false,
   })),
   on(signupFailure, (state, { error }) => ({
     ...state,
